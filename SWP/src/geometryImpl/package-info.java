@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+/**
+ * @author Corvus
+ *
+ */
+package geometryImpl;
