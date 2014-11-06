@@ -41,4 +41,8 @@ class TwoDvector {
 	    double y = this.x * Math.sin(radians) + this.y * Math.cos(radians);
 	    return new TwoDvector(x, y);
 	}
+	
+	double length() {
+		return Math.sqrt(x*x+y*y);
+	}
 }

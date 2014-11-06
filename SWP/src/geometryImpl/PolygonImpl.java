@@ -115,5 +115,30 @@ class PolygonImpl implements Polygon {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	private double getArea(){
+		int n = vertices.length;
+		double sum = 0;
+		for(int i = 0; i < n; i++) {
+			sum =+ (vertices[i].x*vertices[(i+1)%n].y-vertices[(i+1)%n].x*vertices[i].y);
+		}
+		return 0.5*sum;
+	}
+	
+	private Vertex getCentroid() {
+		double A = getArea();
+		int n = vertices.length;
+		double sum = 0;
+		
+		for(int i = 0; i < n; i++) {
+			sum =+ (vertices[i].x+vertices[(i+1)%n].x)*(vertices[i].x*vertices[(i+1)%n].y-vertices[(i+1)%n].x*vertices[i].y);
+		}
+		double x = (1/(6*A))*sum;
+		
+		for(int i = 0; i < n; i++) {
+			sum =+ (vertices[i].y+vertices[(i+1)%n].y)*(vertices[i].x*vertices[(i+1)%n].y-vertices[(i+1)%n].x*vertices[i].y);
+		}
+		double y = (1/(6*A))*sum;
+		return new Vertex(x, y);
+	}
 }
